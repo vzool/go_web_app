@@ -20,6 +20,7 @@ func (this *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
         if strings.HasSuffix(path, ".css") {
             contentType = "text/css"
+
         } else if strings.HasSuffix(path, ".html") {
             contentType = "text/html"
         } else if strings.HasSuffix(path, ".js") {
@@ -32,7 +33,7 @@ func (this *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
             contentType = "text/plain"
         }
 
-        w.Header().Add("Content Type", contentType)
+        w.Header().Add("Content-Type", contentType)
         w.Write(data)
     } else {
         w.WriteHeader(404)
