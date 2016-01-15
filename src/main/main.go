@@ -53,7 +53,7 @@ func serveResource(w http.ResponseWriter, req *http.Request) {
 
     if err == nil {
         defer f.Close()
-        w.Header().Add("Content Type", contentType)
+        w.Header().Add("Content-Type", contentType)
         br := bufio.NewReader(f)
         br.WriteTo(w)
     } else {
